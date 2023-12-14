@@ -1,3 +1,4 @@
+// helpers.js
 export const downloadCanvasToImage = () => {
   const canvas = document.querySelector("canvas");
   const dataURL = canvas.toDataURL();
@@ -12,8 +13,16 @@ export const downloadCanvasToImage = () => {
 
 export const reader = (file) =>
   new Promise((resolve, reject) => {
+    if (!file) {
+      reject(new Error("Invalid file parameter"));
+      return;
+    }
+
     const fileReader = new FileReader();
+
     fileReader.onload = () => resolve(fileReader.result);
+    fileReader.onerror = () => reject(fileReader.error);
+
     fileReader.readAsDataURL(file);
   });
 

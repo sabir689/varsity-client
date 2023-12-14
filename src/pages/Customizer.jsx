@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
@@ -53,7 +54,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('', {
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -172,4 +173,4 @@ const Customizer = () => {
   )
 }
 
-export default Customizer
+export default Customizer;

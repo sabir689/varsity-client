@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unknown-property */
-
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 import { useFrame } from '@react-three/fiber';
@@ -24,7 +22,7 @@ const Shirt = () => {
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
         material={materials.lambert1}
-        material-roughness={1}
+        roughness={1}
         dispose={null}
       >
         {snap.isFullTexture && (
@@ -42,14 +40,14 @@ const Shirt = () => {
             rotation={[0, 0, 0]}
             scale={0.15}
             map={logoTexture}
-            map-anisotropy={16}
+            anisotropy={16}
             depthTest={false}
             depthWrite={true}
           />
         )}
       </mesh>
     </group>
-  )
-}
+  );
+};
 
-export default Shirt
+export default Shirt;
